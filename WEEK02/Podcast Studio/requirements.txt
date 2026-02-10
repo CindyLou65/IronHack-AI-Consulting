@@ -1,0 +1,6 @@
+# Python dependencies for the Podcast Studio project
+newspaper3k
+openai
+gradio
+pydub
+python-dotenv
