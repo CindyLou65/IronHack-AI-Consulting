@@ -1,0 +1,12 @@
+# env
+.env
+
+# generated podcast artifacts
+podcast_output/
+podcast_output/**
+
+# optional: ignore audio anywhere
+*.mp3
+
+# optional: ignore concat list anywhere
+concat_list.txt
