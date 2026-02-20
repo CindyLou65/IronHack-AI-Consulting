@@ -1,6 +1,6 @@
 # Failure Analysis – Version 1 Prompts (15-Run Test)
 
-Generated: 2026-02-11 08:04
+Generated: 2026-02-20 11:51
 
 ## Summary Metrics
 
@@ -15,8 +15,8 @@ Generated: 2026-02-11 08:04
 ## 1) Sentiment Analysis (v1)
 
 **Most common outputs:**  
-- (10x) `The sentiment of the customer message is positive.`
-- (5x) `The sentiment of the message is positive.`
+- (8x) `The sentiment of the customer message is positive.`
+- (7x) `The sentiment of the message is positive.`
 
 **Observed failure patterns:**
 - Output is often a full sentence instead of a single-word label (format not controlled).
@@ -27,9 +27,9 @@ Generated: 2026-02-11 08:04
 ## 2) Product Description Generation (v1)
 
 **Most common outputs (previews):**  
-- (1x) `**AeroBrew Travel Mug: Your Perfect Companion for Every Journey**  Elevate your daily commute with the AeroBrew Travel Mug, designed for tho...`
-- (1x) `### AeroBrew Travel Mug  Elevate your on-the-go beverage experience with the **AeroBrew Travel Mug**—the ultimate companion for commuters an...`
-- (1x) `**AeroBrew Travel Mug**   Price: $29.99  Elevate your on-the-go beverage experience with the **AeroBrew Travel Mug**! Designed with the mode...`
+- (1x) `### AeroBrew Travel Mug: Your Perfect Companion for On-the-Go Living  Elevate your daily commute or travel adventures with the **AeroBrew Tr...`
+- (1x) `### AeroBrew Travel Mug  **Price: $29.99**  Elevate your on-the-go experience with the **AeroBrew Travel Mug**—your perfect companion for ev...`
+- (1x) `### AeroBrew Travel Mug  **Price:** $29.99  Elevate your on-the-go beverage experience with the **AeroBrew Travel Mug**—the ultimate compani...`
 
 **Observed failure patterns:**
 - High variability in structure (headings/bold/markdown), length, and tone across runs.
@@ -41,13 +41,13 @@ Generated: 2026-02-11 08:04
 ## 3) Data Extraction (v1)
 
 **Most common outputs (previews):**  
-- (7x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "The lid started leaking after two days.",   "positiv...`
-- (2x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "lid started leaking after two days",   "positive_not...`
-- (2x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "The lid started leaking after two days.",   "positiv...`
+- (5x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "The lid started leaking after two days.",   "positiv...`
+- (4x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "The lid started leaking after two days.",   "positiv...`
+- (3x) ````json {   "order_id": "A12345",   "product_name": "AeroBrew Travel Mug",   "issues": "lid started leaking after two days",   "positive_not...`
 
 **Detected extraction-specific patterns (counts out of 15 runs):**
 - Code block wrapped: 15
-- Extra explanation text: 2
+- Extra explanation text: 1
 - Issues field as list: 0
 
 **Observed failure patterns:**
