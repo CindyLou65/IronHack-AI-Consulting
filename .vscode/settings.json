@@ -1,0 +1,9 @@
+{
+    "github.copilot.chat.githubMcpServer.enabled": true,
+    "chat.mcp.discovery.enabled": {
+        "cursor-global": true,
+        "cursor-workspace": true,
+        "claude-desktop": true
+    },
+    "github.copilot.chat.githubMcpServer.readonly": true
+}
