@@ -1,0 +1,96 @@
+{
+  "query": "What are the obligations for providers of high-risk AI systems under the EU AI Act?",
+  "k_candidates": 30,
+  "top10": [
+    {
+      "cohere_score": 0.936,
+      "dist": 0.521203,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_65",
+      "chunk_index": 1,
+      "text_preview": "The technical solutions aiming to ensure the cybersecurity of high-risk AI systems shall be appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities shall include, where appropriate, meas"
+    },
+    {
+      "cohere_score": 0.9123,
+      "dist": 0.49926,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_68",
+      "chunk_index": 0,
+      "text_preview": "Article 21 Cooperation with competent authorities 1.   Providers of high-risk AI systems shall, upon a reasoned request by a competent authority, provide that authority all the information and documentation necessary to demonstrate the conformity of "
+    },
+    {
+      "cohere_score": 0.9097,
+      "dist": 0.535838,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_70",
+      "chunk_index": 2,
+      "text_preview": "a high-risk AI system for the purposes of this Regulation and shall be subject to the obligations of the provider under Article 16, in any of the following circumstances: (a) they put their name or trademark on a high-risk AI system already placed on"
+    },
+    {
+      "cohere_score": 0.9059,
+      "dist": 0.581812,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_66",
+      "chunk_index": 2,
+      "text_preview": "with Article 72; (i) procedures related to the reporting of a serious incident in accordance with Article 73; (j) the handling of communication with national competent authorities, other relevant authorities, including those providing or supporting t"
+    },
+    {
+      "cohere_score": 0.9023,
+      "dist": 0.552026,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_71",
+      "chunk_index": 0,
+      "text_preview": "3.   In the case of high-risk AI systems that are safety components of products covered by the Union harmonisation legislation listed in Section A of Annex I, the product manufacturer shall be considered to be the provider of the high-risk AI system,"
+    },
+    {
+      "cohere_score": 0.9,
+      "dist": 0.588716,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_71",
+      "chunk_index": 1,
+      "text_preview": "to fully comply with the obligations set out in this Regulation. This paragraph shall not apply to third parties making accessible to the public tools, services, processes, or components, other than general- purpose AI models, under a free and open-s"
+    },
+    {
+      "cohere_score": 0.8978,
+      "dist": 0.529523,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_71",
+      "chunk_index": 2,
+      "text_preview": "Article 26 Obligations of deployers of high-risk AI systems 1.   Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions for use accompanying t"
+    },
+    {
+      "cohere_score": 0.8937,
+      "dist": 0.476157,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_86",
+      "chunk_index": 0,
+      "text_preview": "4.   For high-risk AI systems referred to in points 1, 6 and 7 of Annex III, in the areas of law enforcement, migration, asylum and border control management, the registration referred to in paragraphs 1, 2 and 3 of this Article shall be in a secure "
+    },
+    {
+      "cohere_score": 0.8928,
+      "dist": 0.521357,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 0,
+      "text_preview": "(84)To ensure legal certainty, it is necessary to clarify that, under certain specific conditions, any distributor, importer, deployer or other third-party should be considered to be a provider of a high- risk AI system and therefore assume all the r"
+    },
+    {
+      "cohere_score": 0.891,
+      "dist": 0.530129,
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_42",
+      "chunk_index": 1,
+      "text_preview": "should refrain from any action incompatible with their duties and should be subject to confidentiality rules under this Regulation. (155)In order to ensure that providers of high-risk AI systems can take into account the experience on the use of high"
+    }
+  ]
+}

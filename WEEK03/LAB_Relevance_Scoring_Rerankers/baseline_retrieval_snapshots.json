@@ -1,0 +1,290 @@
+{
+  "EU_query_unfiltered": [
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_86",
+      "chunk_index": 0,
+      "text_preview": "4.   For high-risk AI systems referred to in points 1, 6 and 7 of Annex III, in the areas of law enforcement, migration, asylum and border control management, the registration referred to in paragraphs 1, 2 and 3 of this Article shall be in a secure "
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_68",
+      "chunk_index": 0,
+      "text_preview": "Article 21 Cooperation with competent authorities 1.   Providers of high-risk AI systems shall, upon a reasoned request by a competent authority, provide that authority all the information and documentation necessary to demonstrate the conformity of "
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 2,
+      "text_preview": "irrespective of whether they may be used as high-risk AI systems as such by other providers or as components of high-risk AI systems and unless provided otherwise under this Regulation, closely cooperate with the providers of the relevant high-risk A"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 1,
+      "text_preview": "the AI system becomes a high-risk AI system in accordance with this Regulation. Those provisions should apply without prejudice to more specific provisions established in certain Union harmonisation legislation based on the New Legislative Framework,"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_70",
+      "chunk_index": 1,
+      "text_preview": "high-risk AI system presents a risk within the meaning of Article 79(1), the distributor shall immediately inform the provider or importer of the system and the authorities competent for the high- risk AI system concerned, giving details, in particul"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_65",
+      "chunk_index": 1,
+      "text_preview": "The technical solutions aiming to ensure the cybersecurity of high-risk AI systems shall be appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities shall include, where appropriate, meas"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 0,
+      "text_preview": "(84)To ensure legal certainty, it is necessary to clarify that, under certain specific conditions, any distributor, importer, deployer or other third-party should be considered to be a provider of a high- risk AI system and therefore assume all the r"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_59",
+      "chunk_index": 1,
+      "text_preview": "rights under Union law. SECTION 2 Requirements for high-risk AI systems Article 8 Compliance with the requirements 1.   High-risk AI systems shall comply with the requirements laid down in this Section, taking into account their intended purpose as w"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_71",
+      "chunk_index": 2,
+      "text_preview": "Article 26 Obligations of deployers of high-risk AI systems 1.   Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions for use accompanying t"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_42",
+      "chunk_index": 1,
+      "text_preview": "should refrain from any action incompatible with their duties and should be subject to confidentiality rules under this Regulation. (155)In order to ensure that providers of high-risk AI systems can take into account the experience on the use of high"
+    }
+  ],
+  "EU_query_eu_only": [
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_86",
+      "chunk_index": 0,
+      "text_preview": "4.   For high-risk AI systems referred to in points 1, 6 and 7 of Annex III, in the areas of law enforcement, migration, asylum and border control management, the registration referred to in paragraphs 1, 2 and 3 of this Article shall be in a secure "
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_68",
+      "chunk_index": 0,
+      "text_preview": "Article 21 Cooperation with competent authorities 1.   Providers of high-risk AI systems shall, upon a reasoned request by a competent authority, provide that authority all the information and documentation necessary to demonstrate the conformity of "
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 2,
+      "text_preview": "irrespective of whether they may be used as high-risk AI systems as such by other providers or as components of high-risk AI systems and unless provided otherwise under this Regulation, closely cooperate with the providers of the relevant high-risk A"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 1,
+      "text_preview": "the AI system becomes a high-risk AI system in accordance with this Regulation. Those provisions should apply without prejudice to more specific provisions established in certain Union harmonisation legislation based on the New Legislative Framework,"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_70",
+      "chunk_index": 1,
+      "text_preview": "high-risk AI system presents a risk within the meaning of Article 79(1), the distributor shall immediately inform the provider or importer of the system and the authorities competent for the high- risk AI system concerned, giving details, in particul"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_65",
+      "chunk_index": 1,
+      "text_preview": "The technical solutions aiming to ensure the cybersecurity of high-risk AI systems shall be appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities shall include, where appropriate, meas"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_25",
+      "chunk_index": 0,
+      "text_preview": "(84)To ensure legal certainty, it is necessary to clarify that, under certain specific conditions, any distributor, importer, deployer or other third-party should be considered to be a provider of a high- risk AI system and therefore assume all the r"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_59",
+      "chunk_index": 1,
+      "text_preview": "rights under Union law. SECTION 2 Requirements for high-risk AI systems Article 8 Compliance with the requirements 1.   High-risk AI systems shall comply with the requirements laid down in this Section, taking into account their intended purpose as w"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_71",
+      "chunk_index": 2,
+      "text_preview": "Article 26 Obligations of deployers of high-risk AI systems 1.   Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions for use accompanying t"
+    },
+    {
+      "source_type": "eu_ai_act",
+      "source_id": "eu_ai_act.pdf",
+      "section": "page_42",
+      "chunk_index": 1,
+      "text_preview": "should refrain from any action incompatible with their duties and should be subject to confidentiality rules under this Regulation. (155)In order to ensure that providers of high-risk AI systems can take into account the experience on the use of high"
+    }
+  ],
+  "Podcast_query_unfiltered": [
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 0,
+      "text_preview": "So imagine for a second you're driving across, I don't know, a massive suspension bridge. Okay. You don't pull over halfway across, get out and demand to see the blueprints, right? You don't interview the welding crew. No. You just, you trust it. You"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 16,
+      "text_preview": ". But there's a philosophical nugget at the end of the document that really stuck with me. It says trust is something we give to people. We trust people. We rely on machines. That's the crux of it, isn't it? If an AI is a black box that we can't expl"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 1,
+      "text_preview": ". This is a heavy hitter. It was produced by the high level expert group on AI or the AI HLA. This is an independent group set up by the European Commission. A mix of academics, industry leaders. And civil society, a really broad group. And just to f"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 15,
+      "text_preview": ". Killer robots, effectively. The source cites the European Parliament calling for a ban on weapons that select and engage targets without a human saying fire. The risk of an arms race and just the moral hazard of an algorithm deciding who lives and "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 2,
+      "text_preview": ". And a checklist that every developer should probably have tattooed on their arm. Okay, let's start with the big picture. The source material defines trustworthy AI as having three components. Right. And they have to exist through the entire lifecyc"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 16,
+      "text_preview": ". But for testing, say, a medical diagnostic tool with volunteer patients, it provides a clear legal pathway that didn't exist before. So it's a mixed bag. Better clarity, but high barriers. And we have to remember the EU is betting that trust is a p"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 11,
+      "text_preview": ". So you have to violate privacy a little bit to ensure fairness. In a very controlled way, yes. You also have to create transparency. You can't just sell a black box to the bank. You have to explain how it works so the human operator can understand "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 0,
+      "text_preview": "Welcome back to the Deep Dive. Today, we aren't just reading the news. We are looking at, well, the rulebook for the next century of human history. That sounds a little hyperbolic. I know it sounds hyperbolic, but looking at this stack of documents, "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 9,
+      "text_preview": "wrong. Exactly. Imagine teaching a self-driving car that a stop sign is actually a speed limit 45 sign by feeding it thousands of corrupted images. The software works perfectly, but its logic is deadly. That's terrifying. It's why robustness is a tot"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 12,
+      "text_preview": ". This brings us to audits. If an algorithm affects fundamental rights, it needs to be auditable. And critically, the source calls for whistleblower protection. Which implies that the people building these things are the first line of defense. They h"
+    }
+  ],
+  "Podcast_query_podcast_only": [
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 0,
+      "text_preview": "So imagine for a second you're driving across, I don't know, a massive suspension bridge. Okay. You don't pull over halfway across, get out and demand to see the blueprints, right? You don't interview the welding crew. No. You just, you trust it. You"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 16,
+      "text_preview": ". But there's a philosophical nugget at the end of the document that really stuck with me. It says trust is something we give to people. We trust people. We rely on machines. That's the crux of it, isn't it? If an AI is a black box that we can't expl"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 1,
+      "text_preview": ". This is a heavy hitter. It was produced by the high level expert group on AI or the AI HLA. This is an independent group set up by the European Commission. A mix of academics, industry leaders. And civil society, a really broad group. And just to f"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 15,
+      "text_preview": ". Killer robots, effectively. The source cites the European Parliament calling for a ban on weapons that select and engage targets without a human saying fire. The risk of an arms race and just the moral hazard of an algorithm deciding who lives and "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 2,
+      "text_preview": ". And a checklist that every developer should probably have tattooed on their arm. Okay, let's start with the big picture. The source material defines trustworthy AI as having three components. Right. And they have to exist through the entire lifecyc"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 16,
+      "text_preview": ". But for testing, say, a medical diagnostic tool with volunteer patients, it provides a clear legal pathway that didn't exist before. So it's a mixed bag. Better clarity, but high barriers. And we have to remember the EU is betting that trust is a p"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 11,
+      "text_preview": ". So you have to violate privacy a little bit to ensure fairness. In a very controlled way, yes. You also have to create transparency. You can't just sell a black box to the bank. You have to explain how it works so the human operator can understand "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "Red_Lines_AI_Act",
+      "section": "transcript",
+      "chunk_index": 0,
+      "text_preview": "Welcome back to the Deep Dive. Today, we aren't just reading the news. We are looking at, well, the rulebook for the next century of human history. That sounds a little hyperbolic. I know it sounds hyperbolic, but looking at this stack of documents, "
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 9,
+      "text_preview": "wrong. Exactly. Imagine teaching a self-driving car that a stop sign is actually a speed limit 45 sign by feeding it thousands of corrupted images. The software works perfectly, but its logic is deadly. That's terrifying. It's why robustness is a tot"
+    },
+    {
+      "source_type": "podcast",
+      "source_id": "The_Blueprint_For_Trustworthy_AI",
+      "section": "transcript",
+      "chunk_index": 12,
+      "text_preview": ". This brings us to audits. If an algorithm affects fundamental rights, it needs to be auditable. And critically, the source calls for whistleblower protection. Which implies that the people building these things are the first line of defense. They h"
+    }
+  ]
+}
