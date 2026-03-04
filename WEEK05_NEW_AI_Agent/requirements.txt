@@ -22,3 +22,6 @@ uvicorn
 
 # LangSmith observability (for monitoring and debugging the agent's execution)
 langsmith
+
+# To download most significant research papers
+arxiv
