@@ -1,0 +1,24 @@
+# Core LangGraph framework
+langgraph
+
+# OpenAI integration via LangChain
+langchain-openai
+
+# Load .env API keys
+python-dotenv
+
+# Tavily search API for real-time web research
+tavily-python
+
+# Pinecone vector database for RAG memory
+pinecone
+
+# Telegram notifications
+python-telegram-bot
+
+# FastAPI web service
+fastapi
+uvicorn
+
+# LangSmith observability (for monitoring and debugging the agent's execution)
+langsmith
