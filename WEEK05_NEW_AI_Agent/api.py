@@ -23,9 +23,10 @@ class AgentRequest(BaseModel):
 
 # Define the RESPONSE body - defines what the API sends back after the agent finishes
 class AgentResponse(BaseModel):
-    topic:        str
-    final_report: str
-    is_approved:  bool
+    topic:            str
+    final_report:     str
+    telegram_summary: str
+    is_approved:      bool
 
 # ─────────────────────────────────────────────
 # POST /run-agent
@@ -43,10 +44,11 @@ async def run_agent(request: AgentRequest):
     })
 
     return AgentResponse(
-        topic=        request.target_topic,
-        final_report= result["final_report"],
-        is_approved=  result["is_approved"]
-    )
+    topic=            request.target_topic,
+    final_report=     result["final_report"],
+    telegram_summary= result.get("telegram_summary", "🚨 AI Weekly Executive Signal\n\n📄 Full briefing attached."),
+    is_approved=      result["is_approved"]
+)
 
 # ─────────────────────────────────────────────
 # GET /health

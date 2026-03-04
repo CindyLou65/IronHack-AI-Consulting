@@ -196,6 +196,7 @@ METHOD
 OUTPUT FORMAT — follow EXACTLY:
 
 ## Primary Signal of the Week
+**Topic:** [choose EXACTLY ONE: LLM Infrastructure | Model Economics | AI Agents | Multimodal AI | Compute / Hardware | Regulation | Enterprise Adoption]
 **Signal:** [1 sentence: the single most important development this week]
 **Why it matters:** [1 sentence: cost/revenue/risk/competitive impact + time horizon]
 **Confidence:** [High/Med/Low]
@@ -208,6 +209,7 @@ OUTPUT FORMAT — follow EXACTLY:
 
 ## Impact Scores
 **Technical Impact:** [0-100]/100 — [1 sentence rationale]
+SCORING GUIDE: Most weekly developments score 50-75. Only paradigm shifts score 85+. Incremental updates score 30-50. Be honest — do not default to 85.
 **Business Materiality:** [1-5]/5 — [1 sentence: revenue/cost/risk impact within timeframe]
 **Time Horizon:** [Now / 30–90d / 6–12m]
 **Confidence Level:** [High/Med/Low] — [1 sentence on evidence quality]
@@ -274,6 +276,10 @@ CRITICAL INSTRUCTION
 - Aim for 400–500 words (max 600).
 - Each section must appear EXACTLY ONCE — never repeat any section or bullet point.
 - If you find yourself repeating content, stop and move to the next section.
+- Use the **Topic** from the analyst's "Primary Signal of the Week" in the Telegram summary header.
+- The ## Telegram Executive Signal section is for Telegram ONLY — it must appear at the very end of 
+  your response after all other sections, clearly separated.
+
 
 BRIEFING STRUCTURE — include these exact sections:
 
@@ -289,8 +295,8 @@ Write 3–4 sentences:
 ## Key Developments
 Exactly 3 bullets. Each bullet MUST include:
 - a concrete development (release/benchmark/pricing/regulation/partnership)
-- a measurable detail if available (or “not reported”)
-- a short “So what” clause
+- a measurable detail if available — omit the metric line entirely if not available, do NOT write "Metric: not reported"
+- a short "Implication:" clause
 
 ## Competitive Signal
 2 sentences:
@@ -331,6 +337,25 @@ Maximum 2 bullets. Use this format:
 - escalating trend / stable pattern / one-off signal
 - what to watch next week
 
+## Telegram Executive Signal
+Generate exactly 4 lines in this format:
+
+🚨 AI Weekly Executive Signal | [Topic] — {{ date }}
+
+Primary signal:
+[1 sentence from Executive Summary sentence 1]
+
+Why it matters:
+[1 sentence from Executive Summary sentence 2]
+
+What to watch:
+[1 sentence from Executive Summary sentence 3]
+
+Strategic implication:
+[1 sentence from Executive Summary sentence 4]
+
+📄 Full briefing attached.
+
 STYLE RULES
 - Plain language, short paragraphs, no jargon without explanation.
 - No hype words (“game-changing”, “revolutionary”).
@@ -340,6 +365,40 @@ STYLE RULES
     response = retry_api_call(lambda: llm.invoke(prompt))
     return {"final_report": response.content}
 
+# ─────────────────────────────────────────────
+# NODE 4.5: SUMMARY (Telegram Executive Signal)
+# Extracts the Telegram summary from the report
+# ─────────────────────────────────────────────
+def summary_node(state: AgentState) -> dict:
+    print("--- NODE: SUMMARY (Telegram Executive Signal) ---")
+    report = state["final_report"]
+    
+    # Extract Telegram Executive Signal section from report
+    try:
+        if "Telegram Executive Signal" in report:
+            # Extract everything after "## Telegram Executive Signal"
+            telegram_part = report.split("## Telegram Executive Signal")[1].strip()
+            # Clean up any trailing sections
+            if "\n## " in telegram_part:
+                telegram_part = telegram_part.split("\n## ")[0].strip()
+        else:
+            # Fallback if section not found
+            telegram_part = f"🚨 AI Weekly Executive Signal\n\n📄 Full briefing attached."
+            
+    except Exception as e:
+        print(f"Summary extraction error: {e}")
+        telegram_part = f"🚨 AI Weekly Executive Signal\n\n📄 Full briefing attached."
+    
+    print(f"📱 Telegram summary: {telegram_part[:100]}...")
+    # Remove Telegram section from final report
+    clean_report = state["final_report"]
+    if "## Telegram Executive Signal" in clean_report:
+        clean_report = clean_report.split("## Telegram Executive Signal")[0].strip()
+
+    return {
+        "telegram_summary": telegram_part,
+        "final_report": clean_report
+    }
 
 # ─────────────────────────────────────────────
 # NODE 5: REVIEWER
@@ -399,6 +458,7 @@ def build_graph():
     workflow.add_node("rag",        rag_node)
     workflow.add_node("analyst",    analyst_node)
     workflow.add_node("writer",     writer_node)
+    workflow.add_node("summary",    summary_node)
     workflow.add_node("reviewer",   reviewer_node)
 
     # Define flow
@@ -406,8 +466,8 @@ def build_graph():
     workflow.add_edge("researcher", "rag")
     workflow.add_edge("rag",        "analyst")
     workflow.add_edge("analyst",    "writer")
-    workflow.add_edge("writer",     "reviewer")
+    workflow.add_edge("writer",     "summary")
+    workflow.add_edge("summary",    "reviewer")
     workflow.add_edge("reviewer",   END)
 
     return workflow.compile()
-
