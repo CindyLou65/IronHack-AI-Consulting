@@ -1,0 +1,305 @@
+{
+  "name": "AI Briefing Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6532c3ba-8e5c-4300-bd27-c1c265dfd556",
+      "name": "Telegram Trigger",
+      "webhookId": "225f9a14-4377-49b2-83e1-6dd23b8a66e3",
+      "credentials": {
+        "telegramApi": {
+          "id": "MCENG8y29mqXvGOS",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7a8f1a89-bbb9-4bf8-9db1-e83d9eaa17b9",
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": "/report",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c5115952-f418-494c-82a0-6a43bb77d5df",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://intertropical-anjelica-cussedly.ngrok-free.dev/run-agent",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"target_topic\": \"Latest LLM releases and efficiency breakthroughs March 2026\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        -80
+      ],
+      "id": "dbc9a084-71cc-4dd0-93c6-80af6eaa07bc",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "chatId": "8580061763",
+        "text": "={{ $json.final_report }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        624,
+        -80
+      ],
+      "id": "79a2c583-8a63-43ce-81a6-21edde2144dd",
+      "name": "Send a text message",
+      "webhookId": "06e1d1e9-a463-4cbd-a7c5-5d560ab68e4d",
+      "credentials": {
+        "telegramApi": {
+          "id": "MCENG8y29mqXvGOS",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $('HTTP Request').item.json.final_report }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        832,
+        -80
+      ],
+      "id": "aac0aaf2-a9e9-42dc-989b-ff933dc69805",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "resource": "conversion",
+        "htmlContent": "={{$json.fullHtml}}",
+        "conversionOptions": {}
+      },
+      "type": "@pdfgeneratorapi/n8n-nodes-pdf-generator-api.pdfGeneratorApi",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        -80
+      ],
+      "id": "cc23e809-105c-4327-ab19-677127efa8e6",
+      "name": "Convert HTML content to PDF",
+      "credentials": {
+        "pdfGeneratorApi": {
+          "id": "TcskvgvIpLsJGWBj",
+          "name": "PDF Generator account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{$node[\"Telegram Trigger\"].json[\"message\"][\"chat\"][\"id\"]}}",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1664,
+        -80
+      ],
+      "id": "823ec1d0-c624-4e38-b6b8-e62bb88d3991",
+      "name": "Send a document",
+      "webhookId": "257f687b-1a6b-41ba-a534-fbbdf933e32b",
+      "credentials": {
+        "telegramApi": {
+          "id": "MCENG8y29mqXvGOS",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "response",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1456,
+        -80
+      ],
+      "id": "5a76a630-554b-4f68-9f98-063ba0500640",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript) — wrap Markdown->HTML fragment into a styled full HTML document\n// + remove emojis/symbols that render as squares in PDF engines\n// Input expected: $json.data contains HTML fragment from \"Markdown to HTML\" node\n// Output: $json.fullHtml (use this in PDF Generator node: {{$json.fullHtml}})\n\nconst bodyRaw = $json.data || \"\";\n\n// Remove emojis/symbol characters (keeps normal text). Best option if your runtime supports Unicode property escapes.\nlet bodyClean;\ntry {\n  bodyClean = bodyRaw.replace(/[\\p{Extended_Pictographic}\\p{So}\\p{Sk}]/gu, \"\");\n} catch (e) {\n  // Fallback: remove only common emoji blocks (keeps most accented characters)\n  bodyClean = bodyRaw.replace(/[\\u2600-\\u27BF\\u{1F000}-\\u{1FAFF}]/gu, \"\");\n}\n\nconst now = new Date();\nconst yyyyMmDd = now.toISOString().slice(0, 10);\n\nconst fullHtml = `<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Weekly AI Intelligence Briefing</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 28px; color: #111; }\n    .meta { font-size: 10px; color: #666; margin-bottom: 12px; }\n    h1 { font-size: 22px; margin: 0 0 12px; }\n    h2 { font-size: 14px; margin: 22px 0 8px; padding-top: 8px; border-top: 2px solid #ddd; }\n    p, li { font-size: 11.5px; line-height: 1.45; }\n    ul, ol { margin: 6px 0 12px 18px; }\n    li { margin-bottom: 10px; }\n    strong { font-weight: 700; }\n    em { color: #333; }\n    hr { border: 0; border-top: 1px solid #eee; margin: 16px 0; }\n\n    /* Page setup */\n    @page { size: A4; margin: 16mm; }\n    h2 { page-break-after: avoid; }\n    ul, ol, p { page-break-inside: avoid; }\n  </style>\n</head>\n<body>\n  <div class=\"meta\">Generated: ${yyyyMmDd} • Confidential • Weekly AI Intelligence Briefing</div>\n  ${bodyClean}\n</body>\n</html>`;\n\nreturn [{ json: { ...$json, fullHtml } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        -80
+      ],
+      "id": "73059d62-d2e3-48ef-bf3d-05e16eb826c1",
+      "name": "Code in JavaScript",
+      "executeOnce": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert HTML content to PDF": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Send a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Convert HTML content to PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "3a35e281-dea1-4d0f-8bd8-2a0871eb3944",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "486bb7f926d6dc9cb397049d8539d11296aad840e9c177ed3ba2f4e901063681"
+  },
+  "id": "9GIRmu1KNfJmbH2K",
+  "tags": []
+}
