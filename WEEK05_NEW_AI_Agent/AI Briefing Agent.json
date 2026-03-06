@@ -87,8 +87,8 @@
     },
     {
       "parameters": {
-        "chatId": "8580061763",
-        "text": "={{ $json.final_report }}",
+        "chatId": "-1003890913117",
+        "text": "={{ $('HTTP Request').item.json.telegram_summary }}",
         "additionalFields": {
           "parse_mode": "Markdown"
         }
@@ -148,15 +148,15 @@
     {
       "parameters": {
         "operation": "sendDocument",
-        "chatId": "={{$node[\"Telegram Trigger\"].json[\"message\"][\"chat\"][\"id\"]}}",
+        "chatId": "-1003890913117",
         "binaryData": true,
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1664,
-        -80
+        1648,
+        -112
       ],
       "id": "823ec1d0-c624-4e38-b6b8-e62bb88d3991",
       "name": "Send a document",
@@ -196,6 +196,82 @@
       "id": "73059d62-d2e3-48ef-bf3d-05e16eb826c1",
       "name": "Code in JavaScript",
       "executeOnce": true
+    },
+    {
+      "parameters": {
+        "name": "=AI_Briefing_{{ $now.format('yyyy-MM-dd') }}.pdf",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1dkLQJ5iz5YWrWTlPe_thIhXKfE3dyJSu",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1632,
+        96
+      ],
+      "id": "3122a335-99b1-4b19-b301-e5c03324b565",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kJcoFMpoGf2n5G3W",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 7,
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        -176
+      ],
+      "id": "7fc8095d-52ae-45f0-b09e-498548f069be",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "fromEmail": "cindy.ai.briefing@gmail.com",
+        "toEmail": "cindylund@ymail.com",
+        "subject": "=🚨 AI Weekly Executive Signal — {{ $now.format('MMM d, yyyy') }}",
+        "html": "=<!DOCTYPE html>\n<html>\n<body style=\"font-family: Calibri, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f0f4ff;\">\n\n<div style=\"background-color: #1E2761; padding: 20px; border-radius: 8px 8px 0 0;\">\n  <h1 style=\"color: #4FC3F7; margin: 0; font-size: 18px;\">🤖 AI Weekly Executive Briefing</h1>\n  <p style=\"color: #94A3B8; margin: 5px 0 0 0; font-size: 12px;\">{{ $now.format('MMMM d, yyyy') }}</p>\n</div>\n\n<div style=\"background-color: #ffffff; padding: 25px; border: 1px solid #CADCFC;\">\n  <p style=\"color: #1E2761; font-size: 14px; white-space: pre-line;\">{{ $('HTTP Request').item.json.telegram_summary }}</p>\n</div>\n\n<div style=\"background-color: #1E2761; padding: 12px; border-radius: 0 0 8px 8px; text-align: center;\">\n  <p style=\"color: #94A3B8; margin: 0; font-size: 11px;\">Full briefing attached as PDF • Powered by AI Briefing Agent</p>\n</div>\n\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1872,
+        96
+      ],
+      "id": "aa10a9e3-b17f-479e-952d-2ac23ba17dd7",
+      "name": "Send an Email",
+      "webhookId": "a499824e-54a2-428d-805a-f5d81bae1f7b",
+      "credentials": {
+        "smtp": {
+          "id": "urRyhEdyeRdVYlB1",
+          "name": "SMTP account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -270,6 +346,11 @@
       "main": [
         [
           {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          },
+          {
             "node": "Send a document",
             "type": "main",
             "index": 0
@@ -287,15 +368,40 @@
           }
         ]
       ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
   },
-  "versionId": "3a35e281-dea1-4d0f-8bd8-2a0871eb3944",
+  "versionId": "b879e83b-0cc0-4f35-96f4-5fa77afed488",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "486bb7f926d6dc9cb397049d8539d11296aad840e9c177ed3ba2f4e901063681"

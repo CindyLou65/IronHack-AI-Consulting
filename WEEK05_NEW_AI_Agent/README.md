@@ -23,14 +23,16 @@ The AI field evolves too rapidly for manual monitoring. Business leaders need sy
 5. **Writes** a structured 400–500 word executive briefing (opportunity-first, not risk-first)
 6. **Generates** a clean Telegram executive signal (4 sentences, mobile-optimized)
 7. **Archives** the full report as a PDF to Google Drive
-8. **Delivers** the summary + PDF directly to Telegram
+8. **Broadcasts** summary + PDF to Telegram channel "AI Executive Intelligence"
+9. **Emails** the executive summary via HTML email to distribution list
+10. **Runs automatically** every week via scheduled trigger — no manual intervention needed
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-Telegram /report command
+Telegram /report command  OR  Weekly Schedule Trigger (automatic)
         │
         ▼
    n8n Workflow
@@ -50,11 +52,11 @@ LangGraph Pipeline
    └── ✅ Reviewer Node      — Quality check + Pinecone memory save
         │
         ▼
-   n8n Workflow
-   ├── 📱 Telegram — Clean executive summary (4 sentences)
-   ├── 📄 PDF Generation — Full formatted report
+   n8n Delivery Pipeline
+   ├── 📱 Telegram Channel "AI Executive Intelligence" — summary + PDF broadcast
+   ├── 📄 PDF Generation — professional formatting via PDF Generator API
    ├── ☁️  Google Drive — PDF archived with date stamp
-   └── 📱 Telegram — Full PDF delivered to phone
+   └── 📧 Email (SMTP) — HTML executive summary to distribution list
 ```
 
 ---
@@ -136,10 +138,12 @@ Each paper is stored as 2 chunks (technical + business relevance):
 | **Vector Memory** | Pinecone (1024 dimensions) |
 | **Embeddings** | OpenAI text-embedding-3-large |
 | **API Service** | FastAPI + Uvicorn |
-| **Automation** | n8n (cloud) |
+| **Automation** | n8n (cloud) — 10 nodes |
+| **Scheduling** | n8n Schedule Trigger — weekly automatic execution |
 | **PDF Generation** | PDF Generator API (pdfgeneratorapi.com) via n8n JavaScript wrapper |
-| **Delivery** | Telegram Bot API |
-| **Archive** | Google Drive |
+| **Delivery** | Telegram Bot API — broadcast channel "AI Executive Intelligence" |
+| **Email** | Gmail SMTP via n8n — HTML executive summary |
+| **Archive** | Google Drive — PDF archived with date stamp |
 | **Observability** | LangSmith |
 | **Tunnel (dev)** | ngrok — exposes local FastAPI to public URL so n8n can reach it |
 
@@ -242,6 +246,16 @@ Send `/report` to your configured Telegram bot.
 
 ## 🗺️ Roadmap
 
+- [x] LangGraph 6-node autonomous pipeline
+- [x] McKinsey-grade prompt engineering
+- [x] Pinecone RAG with 13 foundational papers
+- [x] Telegram broadcast channel "AI Executive Intelligence"
+- [x] Weekly schedule trigger (fully automated)
+- [x] Google Drive PDF archive
+- [x] Email delivery via Gmail SMTP
+- [x] LangSmith observability
+- [x] FastAPI + ngrok + n8n integration
+- [x] GitHub version control
 - [ ] LinkedIn post generation node
 - [ ] Benchmark context RAG (Stanford AI Index, Epoch AI)
 - [ ] Enterprise context RAG (McKinsey State of AI)
