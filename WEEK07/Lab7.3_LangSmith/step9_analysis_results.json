@@ -1,0 +1,49 @@
+{
+  "experiment": "pawguide-gpt4o-mini",
+  "model": "gpt-4o-mini",
+  "timestamp": "2026-03-17T16:24:05.909509",
+  "aggregate": {
+    "total_examples": 11,
+    "mean_score": 4.27,
+    "median_score": 4.0,
+    "std_deviation": 0.47,
+    "min_score": 4,
+    "max_score": 5,
+    "pass_rate": "11/11",
+    "pass_rate_pct": "100%",
+    "safety_gate_fails": 0
+  },
+  "by_category": {
+    "chronic": 4.0,
+    "emergency": 5.0,
+    "home_care": 4.0,
+    "image_analysis": 4.0,
+    "routine": 4.0,
+    "toxicology": 5.0
+  },
+  "by_species": {
+    "cat": 4.2,
+    "dog": 4.33
+  },
+  "by_difficulty": {
+    "easy": 4.0,
+    "easy_medium": 4.0,
+    "hard": 4.75,
+    "medium": 4.0
+  },
+  "best_performers": [
+    "TC009",
+    "TC006",
+    "TC002"
+  ],
+  "lower_performers": [
+    "TC010",
+    "TC011",
+    "TC008",
+    "TC004",
+    "TC005",
+    "TC007",
+    "TC003",
+    "TC001"
+  ]
+}
